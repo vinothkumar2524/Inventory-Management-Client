@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        #getAllEmployeesTd
+        {
+            width: 50%;
+        }
+        #getAllDevicesTd
+        {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <table><tr><td>Total Number of Devices available <h1 id="totalDeviceDiv"></h1></td>
+            <td>Number of laptops available  <h1 id="laptopCount"></h1></td>
+            <td>Number of headsets available <h1 id="headsetCount"></h1> </td>
+            <td>Number of monitors available <h1 id="monitorCount"></h1></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+    <button  onclick="getNumberOfDevices();getLaptopCount();getMonitorCount();getHeadsetCount();">Get</button><br>
+    Get Device details<br>
+    Enter device id : <input type="number" id="getDeviceId">
+    <button id="getDeviceButton" onclick="getDevice()">Get</button><br>
+    <div id="getDeviceDiv"></div>
+    <p>Add Device<br>
+        Device id : <input type="number" id="addDeviceId"><br>
+        Device type :
+        <select id="addDeviceType">
+            <option value="laptop">Laptop</option>
+            <option value="monitor">Monitor</option>
+            <option value="headset">HeadSet</option>
+        </select>
+        <br>
+        Brand : <input type="text" id="addDeviceBrand">
+        <br>
+        <button type="button" id="addDeviceButton" onclick="addDevice();">Add</button>
+    </p>
+    <br>
+    Delete Device : <input type="number" id="deleteDeviceId"><br>
+    <button type="button" onclick="deleteDevice();">Delete</button>
+    <p>
+        
+    </p>
+            </td>
+        
+            <td> <p>
+                Employees<br>
+                Add Employee<br>
+                
+                Employee name: <input type="text" id="addEmployeeName"> 
+                <button id="addEmployee" onclick="addEmployee();getAllEmployees();">add</button><br>
+                <b>Get employee details</b> <br>
+                Employee id : <input id="getEmployeeId" type="number"><br>
+                <div id="get"></div>
+                <button id="getEmployeebutton" onclick="getEmployee();">Get </button><br>
+                <br>
+                <b>map employe with device</b><br>
+                Employee id: <input type="number" id="mapEmployeeId">
+                Device id: <input type="number" id="mapDeviceId" onkeyup="checkDevice(this.value);"> 
+                <div id="errorDiv"></div>
+                <button id="MapButton" onclick="mapEmployeeDevice();getAllEmployees();">Map</button><br>
+                Remove Device from employee:<br>
+                Employee id: <input type="number" id="removeMapEmployeeId">
+                Device id: <input type="number" id="removeMapDeviceId" onkeyup="checkDevice(this.value);"> 
+                <button id="removeDevice" onclick="removeDevice();getAllEmployees();">Remove device</button><br>
+                
+            </p></td>
+        </tr>
+        <tr>
+            <td id="getAllDevicesTd">
+                Get all devices
+        <br>
+        <button id="getAllButton" onclick="getAllDevices();">Get All button daww</button>
+        <div id="getAllDevices"></div>
+            </td>
+            
+            <td id="getAllEmployesTd">
+                get all Employee : <button id="getAllEmployee" onclick="getAllEmployees();">Get All</button>
+                <div id="getAllEmployees"></div>
+            </td>
+        </tr>
+    </table>
+    
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
