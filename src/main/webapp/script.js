@@ -11,7 +11,7 @@ function ajaxFunction(method,URL)
 function getNumberOfDevices()
 {
     var totalDeviceDiv = document.getElementById("totalDeviceDiv");
-    var xmlRequest = ajaxFunction('GET','http://localhost:8080/restapi/device/getTotalDevices');
+    var xmlRequest = ajaxFunction('GET','http://localhost:8080/restapi/device/count');
     xmlRequest.onload = function()
     {
         totalDeviceDiv.innerHTML = xmlRequest.responseText;
@@ -30,7 +30,8 @@ function getAllDevices()
         var allDevices = "" ; 
         for(i = 0 ; i < data.length ; i++)
         {
-            allDevices += "<p> ID : "+data[i].id+" TYPE : "+data[i].deviceType +"BRAND : "+data[i].brand+ "</p>";
+            // allDevices += "<p> ID : "+data[i].id+" TYPE : "+data[i].deviceType +"BRAND : "+data[i].brand+ "</p>";
+            allDevices += "<tr><td class='devices-list-body-content'>"+data[i].id+"</td><td class='devices-list-body-content'>"+data[i].deviceType+"</td><td class='devices-list-body-content'>"+data[i].brand+"</td></tr>";
         }
         getAllDevices.innerHTML = allDevices;
 	};
@@ -90,14 +91,17 @@ function getDevice()
         var xmlRequest = ajaxFunction('POST','http://localhost:8080/restapi/device');
         xmlRequest.setRequestHeader("Content-Type","application/json");
         xmlRequest.send(toSend);
-        xmlRequest.onload = function()
+        xmlRequest.onreadystatechange = function()
         {
-            alert("Device added successfully");
-            getAllDevices();
-            getAllDevices();
-            getLaptopCount();
-            getMonitorCount();
-            getHeadsetCount();
+        	if( this.readyState == 4) {
+        		alert("Device added successfully");
+        		getNumberOfDevices();
+                getAllDevices();
+                getLaptopCount();
+                getMonitorCount();
+                getHeadsetCount();
+        	}
+            
         }
         
     }

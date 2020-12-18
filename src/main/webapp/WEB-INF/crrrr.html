@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function getLapCount(){
+        // const xxx = new XMLHttpRequest();
+
+        // xxx.open("GET", "http://localhost:8080/restapi/device/laptopCount");
+        // console.log("outside onload", this );
+        // xxx.onload = function() {
+        //     alert(xxx.responseText);
+        //     console.log("inside onload", this );
+        //     console.log("xxx ", xxx);
+        // }
+        // xxx.send();
+        // var xhttp = new XMLHttpRequest();
+        //         console.log("outside onload", this );
+        // xhttp.onreadystatechange = function () {
+
+        //     if (this.readyState == 4 && this.status == 200) {
+        //          console.log("in onload", this );
+
+        //         alert(this.responseText) ;
+        //     }
+        // };
+        // xhttp.open("GET", "http://localhost:8080/restapi/device/laptopCount");
+        // xhttp.send();
+        fetch("http://localhost:8080/restapi/device/laptopCount").then(res => console.log(Promise.resolve(res)));
+    }
+    getLapCount();
+</script>
+<body>
+</body>
+</html>
